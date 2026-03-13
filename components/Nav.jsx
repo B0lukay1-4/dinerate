@@ -80,7 +80,9 @@ const Nav = () => {
               onClick={() => setToggleDropdown((prev) => !prev)}
             />
             {toggleDropdown && (
-              <div className="dropdown">
+
+              <div className="bg-white shadow-md mt-2 p-6 rounded-lg ">
+
                 <button
                   type="button"
                   onClick={() => {
