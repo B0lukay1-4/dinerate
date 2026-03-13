@@ -73,14 +73,16 @@ const Nav = () => {
               src=""
               width={37}
               height={37}
-              className="rounded-full"
+              className="rounded-full cursor-pointer"
               alt="profile"
               // the onclick will handle the dropdown for the navigation bar
               // we want to set the toggle dropdown to the opposite of it value
               onClick={() => setToggleDropdown((prev) => !prev)}
             />
             {toggleDropdown && (
-              <div className="bg-white shadow-md mt-2 p-6 rounded-lg ">
+
+              <div className="bg-white shadow-md mt-2 p-6 rounded-lg transition duration-700 ease-in-out ">
+
                 <button
                   type="button"
                   onClick={() => {
