@@ -1,6 +1,8 @@
 import NextAuth from "next-auth";
 import GoogleProviders from "next-auth/providers/google";
 
+import {connectToDB} from '@utils/database';
+
 // to handle authentication
 const handler = NextAuth({
     // then the options object
