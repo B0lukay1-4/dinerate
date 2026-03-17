@@ -1,29 +1,21 @@
 import NextAuth from "next-auth";
-import GoogleProviders from "next-auth/providers/google";
+import GoogleProvider from "next-auth/providers/google";
 
-import {connectToDB} from '@utils/database';
-
-// to handle authentication
 const handler = NextAuth({
-    // then the options object
-    providers:[
-        // then another options object
-        GoogleProviders({
-            clientId:process.env.GOOGLE_ID,
-            clientSecret:process.env.GOOGLE_CLIENT_SECRET,
-        })
-    ],
-    async session({session}){
-
+  providers: [
+    GoogleProvider({
+      clientId: process.env.GOOGLE_ID,
+      clientSecret: process.env.GOOGLE_CLIENT_SECRET,
+    })
+  ],
+  callbacks: {
+    async session({ session }) {
+      return session; // just return the session as is
     },
-       async signIn({profile}){
-        try{
-// serveless -> Lambda ->db 
-        }catch (error){
-
-        }
-
+    async signIn({ profile }) {
+      return true; // just return true to allow sign in
     },
+  },
+});
 
-})
 export { handler as GET, handler as POST };
